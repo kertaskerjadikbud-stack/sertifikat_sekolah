@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sertifikat Gedung Sekolah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 p-4">
+
+<!-- HEADER DINAS -->
+<div class="flex items-center gap-4 mb-6 border-b pb-4">
+  <img src="logo.png" class="w-14 h-14" alt="Logo Dinas">
+  <div>
+    <h1 class="text-xl font-bold text-blue-700">DINAS PENDIDIKAN KABUPATEN XXXXX</h1>
+    <p class="text-sm text-gray-500">Sistem Sertifikat Gedung Sekolah</p>
+  </div>
+</div>
+
+<!-- DASHBOARD PROGRESS -->
+<div class="bg-white shadow rounded-lg p-4 mb-4">
+  <h3 class="font-bold text-blue-700 mb-2">Dashboard Progress Sertifikasi</h3>
+  <div class="w-full bg-gray-200 rounded-full h-6">
+    <div id="progress-bar" class="bg-green-600 h-6 rounded-full text-white text-center">0%</div>
+  </div>
+  <p id="progress-text" class="text-sm text-gray-600 mt-1"></p>
+</div>
+
+<!-- REKAP KECAMATAN -->
+<div class="bg-white shadow rounded-lg p-4 mb-4">
+  <h3 class="font-bold text-blue-700 mb-2">Rekap Per Kecamatan</h3>
+  <table class="min-w-full text-sm border">
+    <thead class="bg-blue-600 text-white">
+      <tr>
+        <th class="px-3 py-2">Kecamatan</th>
+        <th class="px-3 py-2">Total Sekolah</th>
+        <th class="px-3 py-2">Sudah Sertifikat</th>
+        <th class="px-3 py-2">Belum Sertifikat</th>
+      </tr>
+    </thead>
+    <tbody id="rekap"></tbody>
+  </table>
+</div>
+
+<!-- FILTER & SEARCH -->
+<div class="flex flex-wrap gap-3 mb-4">
+  <select id="sheet" class="select">
+    <option>SD NEGERI</option>
+    <option>SMP NEGERI</option>
+  </select>
+
+  <select id="kecamatan" class="select">
+    <option value="">Semua Kecamatan</option>
+  </select>
+
+  <input id="search" type="text" placeholder="🔍 Cari nama / NPSN / kecamatan..." class="border border-gray-300 rounded px-3 py-2 w-64 focus:ring focus:ring-blue-300">
+
+  <button onclick="logout()" class="ml-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">⎋ Keluar</button>
+</div>
+
+<!-- EXPORT -->
+<div class="flex gap-2 mb-3">
+  <button onclick="exportExcel()" class="btn-export bg-green-600">📊 Excel</button>
+  <button onclick="window.print()" class="btn-export bg-red-600">🖨️ PDF</button>
+</div>
+
+<!-- TABLE -->
+<div class="overflow-x-auto bg-white shadow rounded-lg">
+  <table class="min-w-full border text-sm">
+    <thead class="bg-blue-600 text-white">
+      <tr>
+        <th class="th">No</th>
+        <th class="th">NPSN</th>
+        <th class="th">Nama Sekolah</th>
+        <th class="th">Kecamatan</th>
+        <th class="th">Upload</th>
+        <th class="th">Sertifikat</th>
+      </tr>
+    </thead>
+    <tbody id="tb" class="divide-y"></tbody>
+  </table>
+</div>
+
+<!-- PAGINATION -->
+<div class="flex justify-between items-center mt-4">
+  <span id="info" class="text-sm text-gray-500"></span>
+  <div class="space-x-2">
+    <button onclick="prevPage()" class="px-3 py-1 border rounded">‹</button>
+    <span id="page" class="font-semibold"></span>
+    <button onclick="nextPage()" class="px-3 py-1 border rounded">›</button>
+  </div>
+</div>
+
+<!-- MODAL PREVIEW -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="font-bold text-lg">Preview Sertifikat</h3>
+      <button onclick="closeModal()" class="text-red-500 font-bold">✖</button>
+    </div>
+    <iframe id="viewer" class="w-full h-[75vh] border"></iframe>
+    <a id="dl" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" download>⬇ Download Sertifikat</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
