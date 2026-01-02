@@ -1,4 +1,4 @@
-const API = "https://script.google.com/macros/s/AKfycbzJgfF2h4Hb7o_eGCZ7_hGLpTrzaCeE5HpOAkYgdVXiA9YHSRMA3FJwTc2-kNyc26jbtw/exec"; // token keamanan
+const API = "https://script.google.com/macros/s/AKfycbzJgfF2h4Hb7o_eGCZ7_hGLpTrzaCeE5HpOAkYgdVXiA9YHSRMA3FJwTc2-kNyc26jbtw/exec?token=TOKEN_RAHASIA_123"; // token keamanan
 let allData = [], filteredData = [], currentPage = 1, rowsPerPage = 10;
 
 // CEK LOGIN
