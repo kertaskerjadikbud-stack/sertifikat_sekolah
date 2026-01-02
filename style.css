@@ -1,0 +1,25 @@
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+.label { font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; display: block; }
+
+.select { border: 1px solid #cbd5e1; border-radius: 8px; px-3 py-2; }
+
+.th, .td { px-3 py-2; }
+.btn-view { @apply bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600; }
+.btn-export { color: white; padding: 6px 12px; border-radius: 6px; font-size: 14px; }
+
+/* MODAL */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 50; }
+.modal-box { background: white; width: 90%; max-width: 900px; padding: 16px; border-radius: 8px; }
+
+@media print { button, select, input { display: none; } body { background: white; } }
